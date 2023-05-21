@@ -6,7 +6,7 @@
         private Sport sport;
         private ListaDruzyn listaDruzyn;
 
-        public Tabela(List<Druzyna> listaDruzyn, Sport sport) 
+        public Tabela(List<Druzyna> listaDruzyn, Sport sport)
         {
             this.sport = sport;
 

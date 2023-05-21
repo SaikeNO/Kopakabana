@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Kopakabana
 {
-    internal class Osoba
+    class Osoba
     {
+        public string name;
+        public string surname;
+        public string description;
     }
 }

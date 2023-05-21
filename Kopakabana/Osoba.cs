@@ -8,10 +8,13 @@ namespace Kopakabana
 {
     class Osoba
     {
-        public string name;
-        public string surname;
-        public string description;
-        public string sosd;
+        private string name;
+        private string surname;
 
+        public Osoba(string name, string surname)
+        {
+            this.name = name;
+            this.surname = surname;
+        }
     }
 }

@@ -11,5 +11,9 @@ namespace Kopakabana
         public string name;
         public string surname;
         public string description;
+
+
+
+        public string dupa;
     }
 }

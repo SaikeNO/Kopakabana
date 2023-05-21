@@ -4,31 +4,31 @@ namespace Kopakabana
 {
 	class Druzyna
 	{
-		private List<Zawodnik> Zawodnicy = new ();
-		private string Nazwa;
+		private List<Zawodnik> zawodnicy = new();
+		private string nazwa;
 
 		public Druzyna(string Nazwa)
 		{
-			this.Nazwa = Nazwa;
+			nazwa = Nazwa;
 		}
 
 		public Druzyna(string Nazwa, List<Zawodnik> lista)
 		{
-			this.Nazwa = Nazwa;
-			this.Zawodnicy.AddRange(lista);
+			nazwa = Nazwa;
+			zawodnicy.AddRange(lista);
 		}
 
 		public List<Zawodnik> GetZawodnicy()
 		{
-			return Zawodnicy;
+			return zawodnicy;
 		}
 
 		public void DodajZawodnika(Zawodnik zawodnik)
 		{
-			List.Add(zawodnik);
+            zawodnicy.Add(zawodnik);
 		}
 
-        public string Nazwa{ get { return Nazwa; } set { Nazwa = value; } }
+        public string Nazwa{ get { return nazwa; } set { nazwa = value; } }
 
     }
 }

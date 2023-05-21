@@ -1,19 +1,17 @@
-﻿using System;
-
-namespace Kopakabana
+﻿namespace Kopakabana
 {
 	class Zawodnik : Osoba
 	{
-		private int NumerKoszulki;
+		private int numerKoszulki;
 
-		public Zawodnik(string name, string surname, int numerkoszulki) : base(name, surname)
+		public Zawodnik(string name, string surname, int numerKoszulki) : base(name, surname)
 		{
-			NumerKoszulki = numerkoszulki;
+			this.numerKoszulki = numerKoszulki;
 		}
 
 		public int GetNumerKoszulki() 
 		{ 
-			return NumerKoszulki;
+			return numerKoszulki;
 		}
 	}
 }

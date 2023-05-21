@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Kopakabana
+﻿namespace Kopakabana
 {
 	class Sport
 	{

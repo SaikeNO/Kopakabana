@@ -1,8 +1,19 @@
 ﻿using System;
 
-public class Class1
+namespace Kopakabana
 {
-	public Class1()
+	class Sedzia : Osoba
 	{
+		private Sport sport;
+
+		public override Sport(string name, string surname,Sport sport) : base(name, surname)
+		{
+			this.sport = sport;
+		}
+
+		public Sport GetSport()
+		{
+			return sport;
+		}
 	}
 }

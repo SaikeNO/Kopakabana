@@ -8,8 +8,8 @@ namespace Kopakabana
 {
     class Osoba
     {
-        private string name;
-        private string surname;
+        protected string name;
+        protected string surname;
 
         public Osoba(string name, string surname)
         {

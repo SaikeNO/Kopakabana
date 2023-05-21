@@ -12,5 +12,6 @@ namespace Kopakabana
         public string surname;
         public string description;
         public string sosd;
+
     }
 }

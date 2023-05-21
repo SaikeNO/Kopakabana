@@ -1,12 +1,10 @@
-﻿using System;
-
-namespace Kopakabana
+﻿namespace Kopakabana
 {
 	class Sedzia : Osoba
 	{
 		private Sport sport;
 
-		public Sedzia(string name, string surname,Sport sport) : base(name, surname)
+		public Sedzia(string name, string surname, Sport sport) : base(name, surname)
 		{
 			this.sport = sport;
 		}

@@ -1,4 +1,6 @@
-﻿namespace Kopakabana
+﻿using System.IO;
+
+namespace Kopakabana
 {
     class Tabela
     {
@@ -14,13 +16,13 @@
         {
             foreach(WierszTabeli wiersz in wiersze)
             {
-                if (druzyna == wiersz.Druzyna) wiersz.dodajPunkt();
+                if (druzyna == wiersz.Druzyna) wiersz.DodajPunkt();
             }
         }
 
         public void Sortuj()
         {
-
+            wiersze.Sort((a, b) => b.GetPunkty().CompareTo(a.GetPunkty()));
         }
         public List<Druzyna> ZnajdzNajlepsze4()
         {

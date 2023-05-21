@@ -6,27 +6,24 @@
 		private Tabela tabela;
 		private Sport sport;
 
-		public Kwalifikacje(Sport sport, ListaDruzyn listadruzyn, Kantorek kantorek)
+		public Kwalifikacje(Sport sport, ListaDruzyn listaDruzyn)
 		{
 			this.sport = sport;
-			this.listaDruzyn = listadruzyn;
-			// dokonczyc
+			this.listaDruzyn = listaDruzyn;
+			tabela = new Tabela(listaDruzyn);
 		}
 
 		public void Rozegraj()
 		{
-			// do zrobienia
+			// do zrobienia z wykorzystaniem klasy Rozgrywka
 		}
 
-		public override ListaDruzyn ZnajdzNajlepsze4()
+		public List<Druzyna> ZnajdzNajlepsze4()
 		{
-			// do zrobienia
+			return tabela.ZnajdzNajlepsze4();
 		}
 
-		// to niżej nie wiadomo czy git
-		public override Tabela GetTabela()
-		{
-			return tabela;
-		}
-	}
+		public Tabela Tabela { get { return tabela; } }
+        public ListaDruzyn ListaDruzyn { get { return listaDruzyn; } }
+    }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Kopakabana
 {
-    class WierszTabeli
+    class WierszTabeli 
     {
         private int punkty;
         private Druzyna druzyna;
@@ -11,22 +11,9 @@
             this.druzyna = druzyna;
         }
 
-        public Druzyna Druzyna { 
-            get 
-            { 
-                return druzyna; 
-            } 
-        }
+        public void DodajPunkt() { punkty++; }
+        public int GetPunkty() { return punkty; }
 
-        public void dodajPunkt()
-        {
-            punkty++;
-        }
-
-        public int getPunkty()
-        {
-            return punkty;
-        }
-
+        public Druzyna Druzyna { get { return druzyna; } }
     }
 }

@@ -6,7 +6,7 @@ namespace Kopakabana
 	{
 		private Sport sport;
 
-		public override Sport(string name, string surname,Sport sport) : base(name, surname)
+		public Sedzia(string name, string surname,Sport sport) : base(name, surname)
 		{
 			this.sport = sport;
 		}

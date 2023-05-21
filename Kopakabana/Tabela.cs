@@ -1,15 +1,24 @@
-﻿using System.IO;
-
-namespace Kopakabana
+﻿namespace Kopakabana
 {
     class Tabela
     {
         private List<WierszTabeli> wiersze = new();
         private Sport sport;
+        private ListaDruzyn listaDruzyn;
 
         public Tabela(List<Druzyna> listaDruzyn, Sport sport) 
         {
             this.sport = sport;
+
+            foreach(Druzyna druzyna in listaDruzyn)
+            {
+                wiersze.Add(new WierszTabeli(druzyna));
+            }
+        }
+
+        public Tabela(ListaDruzyn listaDruzyn)
+        {
+            this.listaDruzyn = listaDruzyn;
         }
 
         public void DodajPunkt(Druzyna druzyna)
@@ -26,14 +35,14 @@ namespace Kopakabana
         }
         public List<Druzyna> ZnajdzNajlepsze4()
         {
-            List<Druzyna> druzyna = new();
+            List<Druzyna> druzyny = new();
 
             for (int i = 0; i < 4; i++)
             {
-                druzyna.Add(wiersze[i].Druzyna);
+                druzyny.Add(wiersze[i].Druzyna);
             }
 
-            return druzyna;
+            return druzyny;
         }
 
         public List<WierszTabeli> GetTabela()

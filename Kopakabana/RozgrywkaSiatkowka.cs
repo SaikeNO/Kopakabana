@@ -1,5 +1,3 @@
-
-
 namespace Kopakabana
 {
     class RozgrywkaSiatkowka : Rozgrywka

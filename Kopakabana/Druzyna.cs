@@ -5,30 +5,39 @@ namespace Kopakabana
 	class Druzyna
 	{
 		private List<Zawodnik> zawodnicy = new();
-		private string nazwa;
+		private string Nazwa { get; set; }
 
-		public Druzyna(string Nazwa)
+		public Druzyna(string nazwa)
 		{
-			nazwa = Nazwa;
+            Nazwa = nazwa;
 		}
 
-		public Druzyna(string Nazwa, List<Zawodnik> lista)
+		public Druzyna(string nazwa, List<Zawodnik> lista)
 		{
-			nazwa = Nazwa;
+            Nazwa = nazwa;
 			zawodnicy.AddRange(lista);
-		}
-
-		public List<Zawodnik> GetZawodnicy()
-		{
-			return zawodnicy;
 		}
 
 		public void DodajZawodnika(Zawodnik zawodnik)
 		{
             zawodnicy.Add(zawodnik);
 		}
-
-        public string Nazwa{ get { return nazwa; } set { nazwa = value; } }
-
+        public Zawodnik UsunZawodnika(Zawodnik zawodnik)
+        {
+            zawodnicy.Remove(zawodnik);
+            return zawodnik;
+        }
+        public string WyswietlZawodnikow()
+        {
+            return string.Join("\n", zawodnicy);
+        }
+        public List<Zawodnik> GetZawodnicy()
+        {
+            return zawodnicy;
+        }
+        public override string ToString()
+        {
+            return Nazwa;
+        }
     }
 }

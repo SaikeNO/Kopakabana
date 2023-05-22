@@ -2,16 +2,15 @@
 {
 	class Sedzia : Osoba
 	{
-		private Sport sport;
+		private Sport Sport { get; }
 
 		public Sedzia(string name, string surname, Sport sport) : base(name, surname)
 		{
-			this.sport = sport;
+			Sport = sport;
 		}
-
-		public Sport GetSport()
-		{
-			return sport;
-		}
-	}
+        public override string ToString()
+        {
+            return $"Sedzia {Name} {Surname}, Sport {Sport}";
+        }
+    }
 }

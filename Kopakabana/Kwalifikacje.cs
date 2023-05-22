@@ -2,15 +2,23 @@
 {
 	class Kwalifikacje
 	{
-		private ListaDruzyn listaDruzyn;
-		private Tabela tabela;
+		private Tabela Tabela { get; set; }
 		private Sport sport;
+		private List<Rozgrywka> listaRozgrywek = new();
 
-		public Kwalifikacje(Sport sport, ListaDruzyn listaDruzyn)
+		public Kwalifikacje(Sport sport, List<Druzyna> listaDruzyn)
 		{
 			this.sport = sport;
-			this.listaDruzyn = listaDruzyn;
-			tabela = new Tabela(listaDruzyn);
+            Tabela = new Tabela(listaDruzyn, sport);
+
+			for (int i = 0; i < listaDruzyn.Count; i+=2)
+			{
+				listaRozgrywek.Add(new Rozgrywka(listaDruzyn[i], listaDruzyn[i + 1])); 
+				// Problem z sedziami
+				// Dwie możliwości: przekazujemy tu liste wszystkich sedziow
+				// i na podstawie sportu sedziego jest przypisywany do klasy Rozgrywka
+				// albo w konstrutorze Rozgrywka wymusić na użytkowniku wybór sędziego do danej Rozgrywki
+			}
 		}
 
 		public void Rozegraj()
@@ -20,10 +28,7 @@
 
 		public List<Druzyna> ZnajdzNajlepsze4()
 		{
-			return tabela.ZnajdzNajlepsze4();
+			return Tabela.ZnajdzNajlepsze4();
 		}
-
-		public Tabela Tabela { get { return tabela; } }
-        public ListaDruzyn ListaDruzyn { get { return listaDruzyn; } }
     }
 }

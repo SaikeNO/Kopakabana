@@ -3,7 +3,7 @@ namespace Kopakabana
     class Rozgrywka
     {
         private Druzyna druzyna1, druzyna2;
-        private Druzyna WygranaDruzyna { get; set; }
+        private Druzyna? WygranaDruzyna { get; set; }
         private Sedzia Sedzia { get; set; }
         
         public Rozgrywka(Druzyna druzyna1, Druzyna druzyna2, Sedzia sedzia)

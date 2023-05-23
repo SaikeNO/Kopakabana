@@ -3,8 +3,6 @@
 using System.Security.Cryptography.X509Certificates;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Kopakabana
 {
@@ -27,26 +25,26 @@ namespace Kopakabana
             {
                 kantorek = new Kantorek();
             }
-            int choice = 1;
+            int choiceglowny = 1;
             Opcje();
-            while (Convert.ToBoolean(choice))
+            while (Convert.ToBoolean(choiceglowny))
             {
                 Console.WriteLine("Podaj opcje:");
-                choice = Convert.ToInt32(Console.ReadLine());
-                switch (choice)
+                choiceglowny = Convert.ToInt32(Console.ReadLine());
+                switch (choiceglowny)
                 {
                     case 1:
                         {
-                            int choice1 = 1;
-                            while (Convert.ToBoolean(choice1))
+                            int choicesedzia = 1;
+                            while (Convert.ToBoolean(choicesedzia))
                             {
                                 Console.WriteLine("1.Dodaj Sedziego");
                                 Console.WriteLine("2.Usun Sedziego");
                                 Console.WriteLine("3.Wyswietl Sedziow");
                                 Console.WriteLine("0.Cofnij");
                                 Console.WriteLine("Podaj opcje:");
-                                choice1 = Convert.ToInt32(Console.ReadLine());
-                                switch (choice1)
+                                choicesedzia = Convert.ToInt32(Console.ReadLine());
+                                switch (choicesedzia)
                                 {
                                     case 0:
                                         {
@@ -59,61 +57,55 @@ namespace Kopakabana
                                             string imie = Convert.ToString(Console.ReadLine());
                                             Console.WriteLine("Podaj nazwisko:");
                                             string nazwisko = Convert.ToString(Console.ReadLine());
-                                            int choice3 = 1;
-                                            while (Convert.ToBoolean(choice3))
+
+                                            Console.WriteLine("Wybierz sport");
+                                            Console.WriteLine("1.Siatkowka");
+                                            Console.WriteLine("2.Dwa ognie");
+                                            Console.WriteLine("3.Przeciaganie liny");
+                                            Sport sport = new Siatkowka();
+                                            int sportchoice = 1;
+                                            while (Convert.ToBoolean(sportchoice))
                                             {
-                                                Console.WriteLine("Wybierz sport");
-                                                Console.WriteLine("1.Siatkowka");
-                                                Console.WriteLine("2.Dwa ognie");
-                                                Console.WriteLine("3.Przeciaganie liny");
-                                                Sport sport = new Siatkowka();
-                                                int sportchoice = 1;
-                                                while (Convert.ToBoolean(sportchoice))
+                                                Console.WriteLine("Podaj wybor:");
+                                                sportchoice = Convert.ToInt32(Console.ReadLine());
+                                                switch (sportchoice)
                                                 {
-                                                    Console.WriteLine("Podaj wybor:");
-                                                    choice3 = Convert.ToInt32(Console.ReadLine());
-                                                    switch (choice3)
-                                                    {
-                                                        case 1:
-                                                            {
-                                                                sport = new Siatkowka();
-                                                                sportchoice = 0;
-                                                                break;
-                                                            }
-                                                        case 2:
-                                                            {
-                                                                sport = new DwaOgnie();
-                                                                sportchoice = 0;
-                                                                break;
-                                                            }
-                                                        case 3:
-                                                            {
-                                                                sport = new PrzeciaganieLiny();
-                                                                sportchoice = 0;
-                                                                break;
-                                                            }
-                                                        default:
-                                                            {
-                                                                Console.WriteLine("Popraw opcje");
-
-                                                                break;
-                                                            }
-
-                                                    }
-
+                                                    case 1:
+                                                        {
+                                                            sport = new Siatkowka();
+                                                            sportchoice = 0;
+                                                            break;
+                                                        }
+                                                    case 2:
+                                                        {
+                                                            sport = new DwaOgnie();
+                                                            sportchoice = 0;
+                                                            break;
+                                                        }
+                                                    case 3:
+                                                        {
+                                                            sport = new PrzeciaganieLiny();
+                                                            sportchoice = 0;
+                                                            break;
+                                                        }
+                                                    default:
+                                                        {
+                                                            Console.WriteLine("Popraw opcje");
+                                                            break;
+                                                        }
 
                                                 }
-                                                var sedzia = new Sedzia(imie, nazwisko, sport);
-                                                kantorek.DodajSedziego(sedzia);
-                                                Console.WriteLine("Dodano sedziego:");
-                                                Console.WriteLine(sedzia.ToString());
-                                                stream = File.Open("Sedziowie.bin", FileMode.Create);
-                                                formatter = new BinaryFormatter();
-                                                formatter.Serialize(stream, kantorek);
-                                                stream.Close();
-                                                choice3 = 0;
+
 
                                             }
+                                            var sedzia = new Sedzia(imie, nazwisko, sport);
+                                            kantorek.DodajSedziego(sedzia);
+                                            Console.WriteLine("Dodano sedziego:");
+                                            Console.WriteLine(sedzia.ToString());
+                                            stream = File.Open("Sedziowie.bin", FileMode.Create);
+                                            formatter = new BinaryFormatter();
+                                            formatter.Serialize(stream, kantorek);
+                                            stream.Close();
                                             break;
                                         }
                                     case 2:
@@ -138,16 +130,16 @@ namespace Kopakabana
                         }
                     case 2:
                         {
-                            int choice2 = 1;
-                            while (Convert.ToBoolean(choice2))
+                            int choicedruzyna = 1;
+                            while (Convert.ToBoolean(choicedruzyna))
                             {
                                 Console.WriteLine("1.Dodaj Druzyne");
                                 Console.WriteLine("2.Usun Druzyne");
                                 Console.WriteLine("3.Przegladaj Druzyny");
                                 Console.WriteLine("0.Cofnij");
                                 Console.WriteLine("Podaj opcje:");
-                                choice2 = Convert.ToInt32(Console.ReadLine());
-                                switch (choice2)
+                                choicedruzyna = Convert.ToInt32(Console.ReadLine());
+                                switch (choicedruzyna)
                                 {
                                     case 0:
                                         {
@@ -198,5 +190,3 @@ namespace Kopakabana
 
 
 }
-
-

@@ -1,28 +1,29 @@
 ﻿namespace Kopakabana
 {
-	class Sport
-	{
+    [Serializable()]
+    class Sport
+    {
 
-	}
-
-	class Siatkowka : Sport
-	{
+    }
+    [Serializable()]
+    class Siatkowka : Sport
+    {
         public override string ToString()
         {
-			return "Siatkowka";
+            return "Siatkowka";
         }
     }
-
-	class DwaOgnie : Sport 
-	{
+    [Serializable()]
+    class DwaOgnie : Sport
+    {
         public override string ToString()
         {
             return "DwaOgnie";
         }
     }
-
-	class PrzeciaganieLiny : Sport
-	{
+    [Serializable()]
+    class PrzeciaganieLiny : Sport
+    {
         public override string ToString()
         {
             return "PrzeciaganieLiny";

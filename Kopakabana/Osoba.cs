@@ -1,5 +1,6 @@
 ﻿namespace Kopakabana
 {
+    [Serializable()]
     class Osoba
     {
         protected string Name { get; }

@@ -15,8 +15,10 @@
             }
         }
 
-        public void DodajPunkt(Druzyna druzyna)
+        public void DodajPunkt(Druzyna? druzyna)
         {
+            if (druzyna == null) return;
+
             foreach (WierszTabeli wiersz in wiersze)
             {
                 if (druzyna == wiersz.Druzyna) wiersz.DodajPunkt();

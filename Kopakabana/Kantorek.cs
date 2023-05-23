@@ -25,6 +25,10 @@
         {
             return listaSedziow;
         }
+        public Kantorek GetKantorekSportu(Sport sport)
+        {
+            return new Kantorek(listaSedziow.FindAll(s => s.Sport == sport));
+        }
         public override string ToString()
         {
             string returnValue = string.Empty;

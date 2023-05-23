@@ -3,6 +3,8 @@
 using System.Security.Cryptography.X509Certificates;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Kopakabana
 {
@@ -64,47 +66,53 @@ namespace Kopakabana
                                                 Console.WriteLine("1.Siatkowka");
                                                 Console.WriteLine("2.Dwa ognie");
                                                 Console.WriteLine("3.Przeciaganie liny");
-                                                Console.WriteLine("Podaj wybor:");
-                                                choice3 = Convert.ToInt32(Console.ReadLine());
-
-                                                switch (choice3)
+                                                Sport sport = new Siatkowka();
+                                                int sportchoice = 1;
+                                                while (Convert.ToBoolean(sportchoice))
                                                 {
-                                                    case 1:
-                                                        {
-                                                            var sport = new Siatkowka();
-                                                            var sedzia = new Sedzia(imie, nazwisko, sport);
-                                                            kantorek.DodajSedziego(sedzia);
-                                                            Console.WriteLine("Dodano sedziego:");
-                                                            Console.WriteLine(sedzia.ToString());
-                                                            stream = File.Open("Sedziowie.bin", FileMode.Create);
-                                                            formatter = new BinaryFormatter();
-                                                            formatter.Serialize(stream, kantorek);
-                                                            stream.Close();
-                                                            choice3 = 0;
-                                                            break;
-                                                        }
-                                                    case 2:
-                                                        {
-                                                            var sport = new DwaOgnie();
-                                                            var sedzia = new Sedzia(imie, nazwisko, sport);
-                                                            Console.WriteLine(sedzia.ToString());
-                                                            choice3 = 0;
-                                                            break;
-                                                        }
-                                                    case 3:
-                                                        {
-                                                            var sport = new PrzeciaganieLiny();
-                                                            var sedzia = new Sedzia(imie, nazwisko, sport);
-                                                            Console.WriteLine(sedzia.ToString());
-                                                            choice3 = 0;
-                                                            break;
-                                                        }
-                                                    default:
-                                                        {
-                                                            Console.WriteLine("Popraw opcje");
-                                                            break;
-                                                        }
+                                                    Console.WriteLine("Podaj wybor:");
+                                                    choice3 = Convert.ToInt32(Console.ReadLine());
+                                                    switch (choice3)
+                                                    {
+                                                        case 1:
+                                                            {
+                                                                sport = new Siatkowka();
+                                                                sportchoice = 0;
+                                                                break;
+                                                            }
+                                                        case 2:
+                                                            {
+                                                                sport = new DwaOgnie();
+                                                                sportchoice = 0;
+                                                                break;
+                                                            }
+                                                        case 3:
+                                                            {
+                                                                sport = new PrzeciaganieLiny();
+                                                                sportchoice = 0;
+                                                                break;
+                                                            }
+                                                        default:
+                                                            {
+                                                                Console.WriteLine("Popraw opcje");
+
+                                                                break;
+                                                            }
+
+                                                    }
+
+
                                                 }
+                                                var sedzia = new Sedzia(imie, nazwisko, sport);
+                                                kantorek.DodajSedziego(sedzia);
+                                                Console.WriteLine("Dodano sedziego:");
+                                                Console.WriteLine(sedzia.ToString());
+                                                stream = File.Open("Sedziowie.bin", FileMode.Create);
+                                                formatter = new BinaryFormatter();
+                                                formatter.Serialize(stream, kantorek);
+                                                stream.Close();
+                                                choice3 = 0;
+
                                             }
                                             break;
                                         }
@@ -190,4 +198,5 @@ namespace Kopakabana
 
 
 }
+
 

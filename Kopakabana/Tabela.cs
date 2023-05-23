@@ -3,18 +3,13 @@
     class Tabela
     {
         private List<WierszTabeli> wiersze = new();
-        private Sport Sport { get; }
-
         public Tabela(List<Druzyna> listaDruzyn, Sport sport)
         {
-            Sport = sport;
-
             foreach (Druzyna druzyna in listaDruzyn)
             {
                 wiersze.Add(new WierszTabeli(druzyna));
             }
         }
-
         public void DodajPunkt(Druzyna? druzyna)
         {
             if (druzyna == null) return;
@@ -39,7 +34,6 @@
 
             return druzyny;
         }
-
         public List<WierszTabeli> GetTabela()
         {
             return wiersze;

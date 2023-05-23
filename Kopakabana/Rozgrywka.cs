@@ -16,7 +16,7 @@ namespace Kopakabana
         {
             while (true)
             {
-                Console.WriteLine("Rozgrywka");
+                Console.WriteLine($"Rozgrywka, Sedzia: {Sedzia}");
                 Console.WriteLine($"1. {druzyna1}");
                 Console.WriteLine($"2. {druzyna2}");
                 Console.Write("Wybierz wygrana druzyne > ");

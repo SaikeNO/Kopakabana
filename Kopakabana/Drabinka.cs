@@ -51,14 +51,11 @@ namespace Kopakabana
                 sedzia = Kantorek.WybierzSedziego(kantorekSportu);
                 Sedzia[] sedziowiePomocniczy = Kantorek.WybierzSedziowPomocniczych(kantorekSportu, sedzia);
                 final = new RozgrywkaSiatkowka(polfinal1.WygranaDruzyna, polfinal2.WygranaDruzyna, sedzia, sedziowiePomocniczy[0], sedziowiePomocniczy[1]);
-
-               
             }
             else
             {
                 sedzia = Kantorek.WybierzSedziego(kantorekSportu);
                 final = new Rozgrywka(polfinal1.WygranaDruzyna, polfinal2.WygranaDruzyna, sedzia);
-
             }
 
             final.Rozegraj();

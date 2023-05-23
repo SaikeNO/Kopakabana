@@ -41,7 +41,7 @@ namespace Kopakabana
         }
         public override string ToString()
         {
-            return $"Rozgrywka: {druzyna1} vs {druzyna2}";
+            return $"Rozgrywka: {druzyna1} vs {druzyna2}\nSedzia: {Sedzia}";
         }
         public static string WyswietlDruzyny(Druzyna druzyna1, Druzyna druzyna2)
         {

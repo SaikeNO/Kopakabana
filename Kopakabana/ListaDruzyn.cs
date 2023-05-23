@@ -12,7 +12,7 @@
 		public Druzyna UsunDruzyne(Druzyna druzyna)
 		{
 			druzyny.Remove(druzyna);
-			return druzyny;
+			return druzyna;
 		}
 
 		public List<Druzyna> GetListaDruzyn()

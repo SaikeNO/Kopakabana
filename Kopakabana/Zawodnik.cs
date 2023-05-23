@@ -2,16 +2,15 @@
 {
 	class Zawodnik : Osoba
 	{
-		private int numerKoszulki;
+		private int NumerKoszulki { get; }
 
 		public Zawodnik(string name, string surname, int numerKoszulki) : base(name, surname)
 		{
-			this.numerKoszulki = numerKoszulki;
+			NumerKoszulki = numerKoszulki;
 		}
-
-		public int GetNumerKoszulki() 
-		{ 
-			return numerKoszulki;
-		}
-	}
+        public override string ToString()
+        {
+            return $"{Name} {Surname} nr {NumerKoszulki}";
+        }
+    }
 }

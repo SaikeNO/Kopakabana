@@ -2,18 +2,18 @@
 {
     class WierszTabeli 
     {
-        private int punkty;
-        private Druzyna druzyna;
+        public int Punkty { get; set; }
+        public Druzyna Druzyna { get; }
 
         public WierszTabeli(Druzyna druzyna)
         {
-            punkty = 0;
-            this.druzyna = druzyna;
+            Punkty = 0;
+            Druzyna = druzyna;
         }
-
-        public void DodajPunkt() { punkty++; }
-        public int GetPunkty() { return punkty; }
-
-        public Druzyna Druzyna { get { return druzyna; } }
+        public void DodajPunkt() { Punkty++; }
+        public override string ToString()
+        {
+            return $"{Punkty} {Druzyna}";
+        }
     }
 }

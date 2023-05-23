@@ -1,23 +1,26 @@
 ﻿namespace Kopakabana
 {
-	class Kantorek
-	{
-		private List<Sedzia> listaSedziow = new();
+    [Serializable()]
+    class Kantorek
+    {
+        private List<Sedzia> listaSedziow = new();
 
-		public Sedzia UsunSedziego(Sedzia sedzia)
-		{
+        public Kantorek()
+        { }
+        public Sedzia UsunSedziego(Sedzia sedzia)
+        {
             listaSedziow.Remove(sedzia);
-			return sedzia;
-		}
+            return sedzia;
+        }
 
-		public void DodajSedziego(Sedzia sedzia)
-		{
+        public void DodajSedziego(Sedzia sedzia)
+        {
             listaSedziow.Add(sedzia);
-		}
+        }
 
-		public List<Sedzia> GetSedziowie()
-		{
-			return listaSedziow;
-		}
-	}
+        public List<Sedzia> GetSedziowie()
+        {
+            return listaSedziow;
+        }
+    }
 }

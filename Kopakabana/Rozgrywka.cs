@@ -3,8 +3,8 @@ namespace Kopakabana
     class Rozgrywka
     {
         private Druzyna druzyna1, druzyna2;
-        private Druzyna? WygranaDruzyna { get; set; }
-        private Sedzia Sedzia { get; set; }
+        public Druzyna? WygranaDruzyna { get; set; }
+        private Sedzia? Sedzia { get; set; }
         
         public Rozgrywka(Druzyna druzyna1, Druzyna druzyna2, Sedzia sedzia)
         {
@@ -14,11 +14,12 @@ namespace Kopakabana
         }
         public void Rozegraj()
         {
+            Console.WriteLine($"Rozgrywka");
+            Console.WriteLine($"1. {druzyna1}");
+            Console.WriteLine($"2. {druzyna2}");
+
             while (true)
-            {
-                Console.WriteLine($"Rozgrywka, Sedzia: {Sedzia}");
-                Console.WriteLine($"1. {druzyna1}");
-                Console.WriteLine($"2. {druzyna2}");
+            { 
                 Console.Write("Wybierz wygrana druzyne > ");
                 int choice = Convert.ToInt32(Console.ReadLine());
                 if(choice == 1)
@@ -39,6 +40,10 @@ namespace Kopakabana
 
         }
         public override string ToString()
+        {
+            return $"Rozgrywka: {druzyna1} vs {druzyna2}";
+        }
+        public static string WyswietlDruzyny(Druzyna druzyna1, Druzyna druzyna2)
         {
             return $"Rozgrywka: {druzyna1} vs {druzyna2}";
         }

@@ -3,29 +3,45 @@
 	class Kwalifikacje
 	{
 		private Tabela Tabela { get; set; }
-		private Sport sport;
+		private Sport Sport { get; set; }
 		private List<Rozgrywka> listaRozgrywek = new();
-
-		public Kwalifikacje(Sport sport, List<Druzyna> listaDruzyn)
+		private Kantorek kantorekSportu;
+        public Kwalifikacje(Sport sport, List<Druzyna> listaDruzyn, Kantorek kantorek)
 		{
-			this.sport = sport;
+			Sedzia sedzia;
+			Sport = sport;
             Tabela = new Tabela(listaDruzyn, sport);
+            kantorekSportu = kantorek.GetKantorekSportu(Sport);
 
-			for (int i = 0; i < listaDruzyn.Count; i+=2)
+			for (int i = 0; i < listaDruzyn.Count; i++)
 			{
-				listaRozgrywek.Add(new Rozgrywka(listaDruzyn[i], listaDruzyn[i + 1])); 
-				// Problem z sedziami
-				// Dwie możliwości: przekazujemy tu liste wszystkich sedziow
-				// i na podstawie sportu sedziego jest przypisywany do klasy Rozgrywka
-				// albo w konstrutorze Rozgrywka wymusić na użytkowniku wybór sędziego do danej Rozgrywki
+				for (int j = i + 1; j < listaDruzyn.Count; j++)
+				{
+					Console.WriteLine(Rozgrywka.WyswietlDruzyny(listaDruzyn[i], listaDruzyn[j]));
+					Console.WriteLine(kantorekSportu);
+
+					sedzia = Kantorek.WybierzSedziego(kantorekSportu);
+
+					if (Sport is Siatkowka)
+					{
+						Sedzia[] sedziowiePomocniczy = Kantorek.WybierzSedziowPomocniczych(kantorekSportu, sedzia);
+						listaRozgrywek.Add(new RozgrywkaSiatkowka(listaDruzyn[i], listaDruzyn[j], sedzia, sedziowiePomocniczy[0], sedziowiePomocniczy[1]));
+					}
+					else
+					{
+						listaRozgrywek.Add(new Rozgrywka(listaDruzyn[i], listaDruzyn[j], sedzia));
+					}
+				}
 			}
 		}
-
 		public void Rozegraj()
 		{
-			// do zrobienia z wykorzystaniem klasy Rozgrywka
+			foreach(Rozgrywka rozgrywka in listaRozgrywek)
+			{
+				rozgrywka.Rozegraj();
+				Tabela.DodajPunkt(rozgrywka.WygranaDruzyna);
+			}
 		}
-
 		public List<Druzyna> ZnajdzNajlepsze4()
 		{
 			return Tabela.ZnajdzNajlepsze4();

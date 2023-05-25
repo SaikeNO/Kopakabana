@@ -3,8 +3,7 @@
     [Serializable()]
     class Sedzia : Osoba
     {
-		private Sport Sport { get; }
-		public bool czyZajety { get; set; }
+		public Sport Sport { get; }
 
         public Sedzia(string name, string surname, Sport sport) : base(name, surname)
         {
